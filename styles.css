@@ -1521,6 +1521,8 @@ footer {
     /* --- Diferenciais --- */
     #diferenciais {
         padding: 70px 24px;
+        background-attachment: scroll;
+        background-position: center;
     }
 
     .diferenciais-grid {
