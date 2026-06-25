@@ -128,6 +128,30 @@ itensGaleria.forEach(function (item) {
     observador.observe(item);
 });
 
+const cardsServicos = document.querySelectorAll('#servicos .card');
+
+window.addEventListener('scroll', function () {
+
+    const centroTela = window.innerHeight / 2;
+
+    cardsServicos.forEach(function (card) {
+
+        const rect = card.getBoundingClientRect();
+
+        const centroCard = rect.top + rect.height / 2;
+
+        const distancia = Math.abs(centroTela - centroCard);
+
+        if (distancia < rect.height / 2) {
+            card.classList.add('card-ativo');
+        } else {
+            card.classList.remove('card-ativo');
+        }
+
+    });
+
+});
+
 // ===== LIGHTBOX DA GALERIA =====
 
 // Pega todas as imagens da galeria e guarda os caminhos delas numa lista
@@ -156,7 +180,7 @@ function abrirLightbox(indice) {
 // Função que fecha o lightbox
 function fecharLightbox() {
     lightbox.classList.remove('ativo');
-    document.body.style.overflow = '';
+    document.body.style.overflow = ''
 }
 
 // Função que avança para a próxima foto (volta pro início se chegar no fim)

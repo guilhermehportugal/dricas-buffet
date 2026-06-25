@@ -1464,6 +1464,19 @@ footer {
         margin-bottom: 30px;
     }
 
+      #servicos .card {
+        opacity: 0.75;
+        transform: scale(0.96);
+        transition: transform 0.35s ease, box-shadow 0.35s ease, opacity 0.35s ease;
+    }
+
+    #servicos .card.card-ativo {
+        opacity: 1;
+        transform: scale(1.03);
+        box-shadow: 0 14px 35px rgba(0, 0, 0, 0.14);
+        border-color: #c9a84c;
+    }
+
     .secao-subtitulo {
         font-size: 0.8rem;
         letter-spacing: 2px;
