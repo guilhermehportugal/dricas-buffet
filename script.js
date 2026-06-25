@@ -150,11 +150,13 @@ function abrirLightbox(indice) {
     indiceAtual = indice;
     lightboxImagem.src = listaCaminhos[indiceAtual];
     lightbox.classList.add('ativo');
+    document.body.style.overflow = 'hidden'
 }
 
 // Função que fecha o lightbox
 function fecharLightbox() {
     lightbox.classList.remove('ativo');
+    document.body.style.overflow = '';
 }
 
 // Função que avança para a próxima foto (volta pro início se chegar no fim)
