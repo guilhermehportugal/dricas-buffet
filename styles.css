@@ -459,6 +459,7 @@ header.scrolled .menu-toggle span {
     z-index: 1000;
     justify-content: center;
     align-items: center;
+    touch-action: none;
 }
 
 .lightbox.ativo {
