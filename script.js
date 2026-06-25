@@ -294,6 +294,10 @@ lightbox.addEventListener('touchend', function (evento) {
 });
 
 function detectarDirecaoSwipe() {
+    if (window.visualViewport && window.visualViewport.scale > 1.05) {
+        return;
+    }
+
     const distanciaMinima = 50;
     const diferenca = posicaoFinalX - posicaoInicialX;
 
