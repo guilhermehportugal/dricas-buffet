@@ -255,6 +255,29 @@ window.addEventListener('load', function () {
     }, 500);
 });
 
+let posicaoInicialX = 0;
+let posicaoFinalX = 0;
+
+lightbox.addEventListener('touchstart', function (evento) {
+    posicaoInicialX = evento.changedTouches[0].screenX;
+});
+
+lightbox.addEventListener('touchend', function (evento) {
+    posicaoFinalX = evento.changedTouches[0].screenX;
+    detectarDirecaoSwipe();
+});
+
+function detectarDirecaoSwipe() {
+    const distanciaMinima = 50;
+    const diferenca = posicaoFinalX - posicaoInicialX;
+
+    if (diferenca > distanciaMinima) {
+        fotoAnterior();
+    } else if (diferenca < -distanciaMinima) {
+        proximaFoto();
+    }
+}
+
 
 /* ============================================
    CÓDIGO NÃO UTILIZADO ATUALMENTE
