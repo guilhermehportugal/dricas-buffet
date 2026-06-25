@@ -128,6 +128,75 @@ itensGaleria.forEach(function (item) {
     observador.observe(item);
 });
 
+// ===== LIGHTBOX DA GALERIA =====
+
+// Pega todas as imagens da galeria e guarda os caminhos delas numa lista
+const fotosGaleria = Array.from(document.querySelectorAll('.galeria-item img'));
+const listaCaminhos = fotosGaleria.map(function (img) {
+    return img.getAttribute('src');
+});
+
+// Elementos do lightbox
+const lightbox = document.getElementById('lightbox');
+const lightboxImagem = document.getElementById('lightbox-imagem');
+const btnFechar = document.getElementById('lightbox-fechar');
+const btnAnterior = document.getElementById('lightbox-anterior');
+const btnProxima = document.getElementById('lightbox-proxima');
+
+let indiceAtual = 0; // guarda qual foto está sendo exibida no momento
+
+// Função que abre o lightbox numa foto específica (pelo índice na lista)
+function abrirLightbox(indice) {
+    indiceAtual = indice;
+    lightboxImagem.src = listaCaminhos[indiceAtual];
+    lightbox.classList.add('ativo');
+}
+
+// Função que fecha o lightbox
+function fecharLightbox() {
+    lightbox.classList.remove('ativo');
+}
+
+// Função que avança para a próxima foto (volta pro início se chegar no fim)
+function proximaFoto() {
+    indiceAtual = (indiceAtual + 1) % listaCaminhos.length;
+    lightboxImagem.src = listaCaminhos[indiceAtual];
+}
+
+// Função que volta para a foto anterior (vai pro fim se estiver no início)
+function fotoAnterior() {
+    indiceAtual = (indiceAtual - 1 + listaCaminhos.length) % listaCaminhos.length;
+    lightboxImagem.src = listaCaminhos[indiceAtual];
+}
+
+// Ao clicar em qualquer foto da galeria, abre o lightbox nela
+fotosGaleria.forEach(function (img, indice) {
+    img.addEventListener('click', function () {
+        abrirLightbox(indice);
+    });
+});
+
+// Botões de fechar e navegar
+btnFechar.addEventListener('click', fecharLightbox);
+btnProxima.addEventListener('click', proximaFoto);
+btnAnterior.addEventListener('click', fotoAnterior);
+
+// Fecha o lightbox se clicar fora da imagem (no fundo escuro)
+lightbox.addEventListener('click', function (evento) {
+    if (evento.target === lightbox) {
+        fecharLightbox();
+    }
+});
+
+// Permite navegar com as setas do teclado e fechar com Esc
+document.addEventListener('keydown', function (evento) {
+    if (!lightbox.classList.contains('ativo')) return; // só funciona se o lightbox estiver aberto
+
+    if (evento.key === 'Escape') fecharLightbox();
+    if (evento.key === 'ArrowRight') proximaFoto();
+    if (evento.key === 'ArrowLeft') fotoAnterior();
+});
+
 
 /* ============================================
    DEPOIMENTOS — SWIPER (CARROSSEL) E SETAS DE NAVEGAÇÃO

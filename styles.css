@@ -371,7 +371,8 @@ header.scrolled .menu-toggle span {
 }
 
 #sobre-texto-ancora {
-    scroll-margin-top: 110px;   /* dá espaço pro header fixo não cobrir o texto */
+    scroll-margin-top: 110px;
+    /* dá espaço pro header fixo não cobrir o texto */
 }
 
 .sobre-texto h2 {
@@ -440,6 +441,74 @@ header.scrolled .menu-toggle span {
 .sobre-texto .btn:hover::after {
     width: 100%;
     transition: width 0.35s ease;
+}
+
+
+/* ============================================
+   LIGHTBOX DA GALERIA (visualização ampliada das fotos)
+   ============================================ */
+
+.lightbox {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.92);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+.lightbox.ativo {
+    display: flex;
+}
+
+.lightbox-imagem {
+    max-width: 90%;
+    max-height: 85vh;
+    object-fit: contain;
+    border-radius: 4px;
+}
+
+.lightbox-fechar {
+    position: absolute;
+    top: 24px;
+    right: 36px;
+    font-size: 2.5rem;
+    color: #fff;
+    cursor: pointer;
+    line-height: 1;
+    transition: color 0.3s;
+}
+
+.lightbox-fechar:hover {
+    color: #c9a84c;
+}
+
+.lightbox-seta {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 3rem;
+    color: #fff;
+    cursor: pointer;
+    padding: 10px 18px;
+    user-select: none;
+    transition: color 0.3s;
+}
+
+.lightbox-seta:hover {
+    color: #c9a84c;
+}
+
+.lightbox-anterior {
+    left: 10px;
+}
+
+.lightbox-proxima {
+    right: 10px;
 }
 
 
@@ -530,7 +599,7 @@ header.scrolled .menu-toggle span {
 
 .galeria-grid {
     display: grid;
-    grid-template-columns: repeat(3,1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 16px;
     max-width: 1100px;
     margin: 0 auto;
@@ -541,13 +610,14 @@ header.scrolled .menu-toggle span {
     height: 290px;
     object-fit: cover;
     display: block;
+    cursor: pointer;
 }
 
 /* Animação de revelar ao rolar a página (usada via JS / IntersectionObserver) */
 .revelar-esquerda {
     opacity: 0;
     transform: translateX(-60px);
-    transition: opacity 0.7s ease, transform 0.7s ease; 
+    transition: opacity 0.7s ease, transform 0.7s ease;
 }
 
 .revelar-direita {
@@ -608,8 +678,13 @@ header.scrolled .menu-toggle span {
 }
 
 @keyframes deslizar {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
 }
 
 
@@ -727,7 +802,7 @@ header.scrolled .menu-toggle span {
 }
 
 .carrossel-depoimentos .swiper-wrapper {
-    align-items: stretch; 
+    align-items: stretch;
     height: auto !important;
 }
 
@@ -1180,15 +1255,6 @@ footer {
     background-color: #1ebe57;
 }
 
-
-/* ============================================
-   CÓDIGO NÃO UTILIZADO ATUALMENTE
-   (a seção #contato antiga foi removida do HTML; o CSS abaixo
-   não afeta nada visível hoje, mas foi mantido sem alteração
-   para não arriscar quebrar nada. Pode ser apagado com segurança
-   se confirmar que não usa mais em nenhum lugar.)
-   ============================================ */
-
 #contato {
     padding: 80px 40px;
     background-color: #1a1a1a;
@@ -1236,9 +1302,11 @@ footer {
     0% {
         transform: translateY(0) scale(1);
     }
+
     50% {
         transform: translateY(-24px) scale(1.04);
     }
+
     100% {
         transform: translate(-18px) scale(1.03);
     }
@@ -1251,231 +1319,269 @@ footer {
 
 @media (max-width: 900px) {
 
-  /* --- Header --- */
-  header {
-    padding: 0 16px;
-  }
+    /* --- Header --- */
+    header {
+        padding: 0 16px;
+    }
 
-  header.scrolled {
-    padding: 0 16px;
-  }
+    header.scrolled {
+        padding: 0 16px;
+    }
 
-  .logo {
-    margin-right: auto;
-  }
+    .logo {
+        margin-right: auto;
+    }
 
-  /* --- Menu hambúrguer (ativação visual) --- */
-  .menu-toggle {
-    display: flex;
-  }
+    /* --- Menu hambúrguer (ativação visual) --- */
+    .menu-toggle {
+        display: flex;
+    }
 
-  nav {
-    position: fixed;
-    top: 90px;
-    left: 0;
-    width: 100%;
-    height: 0;
-    overflow: hidden;
-    background-color: #fff;
-    transition: height 0.3s ease;
-  }
+    nav {
+        position: fixed;
+        top: 90px;
+        left: 0;
+        width: 100%;
+        height: 0;
+        overflow: hidden;
+        background-color: #fff;
+        transition: height 0.3s ease;
+    }
 
-  nav.active {
-    height: calc(100vh - 90px);
-  }
+    nav.active {
+        height: calc(100vh - 90px);
+    }
 
-  nav ul {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0;
-    padding: 30px 0;
-  }
+    nav ul {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0;
+        padding: 30px 0;
+    }
 
-  nav ul li {
-    width: 100%;
-    text-align: center;
-    padding: 16px 0;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
-  }
+    nav ul li {
+        width: 100%;
+        text-align: center;
+        padding: 16px 0;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    }
 
-  nav ul li a {
-    font-size: 1rem;
-    color: #c9a84c;
-  }
+    nav ul li a {
+        font-size: 1rem;
+        color: #c9a84c;
+    }
 
-  nav ul li a:hover {
-    color: #9f7c2e;
-  }
+    nav ul li a:hover {
+        color: #9f7c2e;
+    }
 
-  header.scrolled nav ul li a {
-    color: #c9a84c;
-  }
+    header.scrolled nav ul li a {
+        color: #c9a84c;
+    }
 
-  header.scrolled nav ul li a:hover {
-    color: #9f7c2e;
-  }
+    header.scrolled nav ul li a:hover {
+        color: #9f7c2e;
+    }
 
-  nav ul li .btn-orcamento {
-    display: inline-block;
-    border: 2px solid #c9a84c;
-    color: #c9a84c !important;
-    background-color: transparent;
-  }
+    nav ul li .btn-orcamento {
+        display: inline-block;
+        border: 2px solid #c9a84c;
+        color: #c9a84c !important;
+        background-color: transparent;
+    }
 
-  nav ul li .btn-orcamento:hover {
-    background-color: #c9a84c;
-    color: #fff !important;
-  }
+    nav ul li .btn-orcamento:hover {
+        background-color: #c9a84c;
+        color: #fff !important;
+    }
 
-  /* --- Hero --- */
-  #hero {
-    width: 100%;
-  }
+    /* --- Hero --- */
+    #hero {
+        width: 100%;
+    }
 
-  .hero-swiper,
-  .hero-slide {
-    width: 100%;
-  }
+    .hero-swiper,
+    .hero-slide {
+        width: 100%;
+    }
 
-  .hero-content {
-    margin-top: 180px;
-    padding: 0 20px;
-  }
+    .hero-content {
+        margin-top: 200px;
+        padding: 0 20px;
+    }
 
-  .hero-content h1 {
-    font-size: 2.2rem;
-  }
+    .hero-content h1 {
+        font-size: 2.2rem;
+    }
 
-  .hero-tags {
-    gap: 10px;
-    flex-wrap: wrap;
-  }
+    .hero-tags {
+        gap: 10px;
+        flex-wrap: wrap;
+    }
 
-  .hero-tags span {
-    font-size: 0.75rem;
-  }
+    .hero-tags span {
+        font-size: 0.75rem;
+    }
 
-  /* --- Sobre --- */
-  #sobre {
-    padding: 60px 24px;
-  }
+    /* --- Sobre --- */
+    #sobre {
+        padding: 60px 24px;
+    }
 
-  .sobre-container {
-    flex-direction: column;
-    gap: 32px;
-  }
+    .sobre-container {
+        flex-direction: column;
+        gap: 32px;
+    }
 
-  .sobre-imagem img {
-    height: 280px;
-  }
+    .sobre-imagem img {
+        height: 280px;
+    }
 
-  .sobre-texto h2 {
-    font-size: 1.6rem;
-  }
+    .sobre-texto h2 {
+        font-size: 1.6rem;
+    }
 
-  .sobre-texto p {
-    font-size: 0.95rem;
-  }
+    .sobre-texto p {
+        font-size: 0.95rem;
+    }
 
-  /* --- Serviços --- */
-  #servicos {
-    padding: 60px 24px;
-  }
+    /* --- Serviços --- */
+    #servicos {
+        padding: 60px 24px;
+    }
 
-  #servicos h2 {
-    font-size: 1.3rem;
-    margin-top: 8px;
-    letter-spacing: 1.5px;
-    margin-bottom: 30px;
-  }
+    #servicos h2 {
+        font-size: 1.3rem;
+        margin-top: 8px;
+        letter-spacing: 1.5px;
+        margin-bottom: 30px;
+    }
 
-  .secao-subtitulo {
-    font-size: 0.8rem;
-    letter-spacing: 2px;
-  }
+    .secao-subtitulo {
+        font-size: 0.8rem;
+        letter-spacing: 2px;
+    }
 
-  .cards {
-    flex-direction: column;
-    align-items: center;
-  }
+    .cards {
+        flex-direction: column;
+        align-items: center;
+    }
 
-  .card {
-    width: 100%;
-    max-width: 360px;
-  }
+    .card {
+        width: 100%;
+        max-width: 360px;
+    }
 
-  /* --- Diferenciais --- */
-  #diferenciais {
-    padding: 70px 24px;
-  }
+    /* --- Galeria (mobile: 2 colunas + última foto larga) --- */
+    .galeria-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
 
-  .diferenciais-grid {
-    grid-template-columns: 1fr;
-    gap: 36px;
-  }
+    .galeria-item-larga {
+        grid-column: span 2;
+    }
 
-  .diferencial-item h3 {
-    font-size: 1rem;
-  }
+    .galeria-item-larga img {
+        height: 200px;
+    }
 
-  .diferencial-item p {
-    font-size: 0.85rem;
-  }
+    /* --- Lightbox (ajustes de tamanho para telas pequenas) --- */
+    .lightbox-fechar {
+        top: 16px;
+        right: 20px;
+        font-size: 2rem;
+    }
 
-  /* --- Depoimentos --- */
-  #depoimentos {
-    padding: 60px 16px;
-  }
+    .lightbox-seta {
+        font-size: 2rem;
+        padding: 8px 10px;
+    }
 
-  #depoimentos h2 {
-    font-size: 1.8rem;
-    letter-spacing: 2px;
-  }
+    .lightbox-anterior {
+        left: 4px;
+    }
 
-  .carrossel-depoimentos {
-    overflow: hidden;
-  }
+    .lightbox-proxima {
+        right: 4px;
+    }
 
-  .carrossel-depoimentos .swiper-slide {
-    height: auto !important;
-  }
+    .lightbox-imagem {
+        max-width: 95%;
+    }
 
-  .cartao-depoimento {
-    padding: 28px 20px;
-    height: auto !important;
-    min-height: 280px;
-  }
+    /* --- Diferenciais --- */
+    #diferenciais {
+        padding: 70px 24px;
+    }
 
-  .texto-depoimento {
-    font-size: 15px;
-    line-height: 24px;
-  }
+    .diferenciais-grid {
+        grid-template-columns: 1fr;
+        gap: 36px;
+    }
 
-  /* --- Orçamento --- */
-  .orcamento-box {
-    padding: 40px 24px;
-  }
+    .diferencial-item h3 {
+        font-size: 1rem;
+    }
 
-  .orcamento-box h2 {
-    font-size: 1.6rem;
-    letter-spacing: 2px;
-  }
+    .diferencial-item p {
+        font-size: 0.85rem;
+    }
 
-  /* --- WhatsApp flutuante --- */
-  .wpp-tooltip {
-    display: none;
-  }
+    /* --- Depoimentos --- */
+    #depoimentos {
+        padding: 60px 16px;
+    }
 
-  /* --- Geral --- */
-  .container {
-    overflow-x: hidden;
-    width: 100%;
-  }
+    #depoimentos h2 {
+        font-size: 1.8rem;
+        letter-spacing: 2px;
+    }
 
-  .footer-colunas {
-    grid-template-columns: 1fr;
-    gap: 30px;
-}
+    .carrossel-depoimentos {
+        overflow: hidden;
+    }
+
+    .carrossel-depoimentos .swiper-slide {
+        height: auto !important;
+    }
+
+    .cartao-depoimento {
+        padding: 28px 20px;
+        height: auto !important;
+        min-height: 280px;
+    }
+
+    .texto-depoimento {
+        font-size: 15px;
+        line-height: 24px;
+    }
+
+    /* --- Orçamento --- */
+    .orcamento-box {
+        padding: 40px 24px;
+    }
+
+    .orcamento-box h2 {
+        font-size: 1.6rem;
+        letter-spacing: 2px;
+    }
+
+    /* --- WhatsApp flutuante --- */
+    .wpp-tooltip {
+        display: none;
+    }
+
+    /* --- Geral --- */
+    .container {
+        overflow-x: hidden;
+        width: 100%;
+    }
+
+    .footer-colunas {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
 
 }
