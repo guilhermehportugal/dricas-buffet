@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lato:wght@300;400;700&display=swap">
+    <link rel="stylesheet" href="styles.css">
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    <title>Drica's Buffet</title>
+</head>
+
+
+<body>
+
+    <header>
+        <div class="logo">
+            <img src="images/Logo Drica_s fundo branco3.png" alt="Drica's Buffet">
+        </div>
+
+        <button class="menu-toggle" aria-label="abrir-menu" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <nav id="nav-menu">
+            <ul>
+                <li><a href="#sobre-texto-ancora">Sobre</a></li>
+                <li><a href="#servicos">Serviços</a></li>
+                <li><a href="#galeria">Galeria</a></li>
+                <li><a href="#orcamento-destaque">Contato</a></li>
+                <li><a href="#orcamento-destaque" class="btn-orcamento">Solicite um orçamento</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+
+        <section id="hero">
+            <div class="swiper hero-swiper">
+                <div class="swiper-wrapper">
+
+                    <div class="swiper-slide hero-slide" style="background-image: url('images/hero-1.jpg')">
+                        <div class="hero-overlay"></div>
+                        <div class="hero-content">
+                            <div class="hero-tags">
+                                <span>› CAFÉ DA MANHÃ</span>
+                                <span>› COFFEE BREAK</span>
+                                <span>› EVENTOS</span>
+                            </div>
+                            <h1>Drica's Buffet</h1>
+                            <p>Você imagina, nós realizamos!</p>
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide hero-slide" style="background-image: url('images/hero-2.jpg')">
+                        <div class="hero-overlay"></div>
+                        <div class="hero-content">
+                            <div class="hero-tags">
+                                <span>› CAFÉ DA MANHÃ</span>
+                                <span>› COFFEE BREAK</span>
+                                <span>› EVENTOS</span>
+                            </div>
+                            <h1>Drica's Buffet</h1>
+                            <p>Você imagina, nós realizamos!</p>
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide hero-slide" style="background-image: url('images/hero-3.jpg')">
+                        <div class="hero-overlay"></div>
+                        <div class="hero-content">
+                            <div class="hero-tags">
+                                <span>› CAFÉ DA MANHÃ</span>
+                                <span>› COFFEE BREAK</span>
+                                <span>› EVENTOS</span>
+                            </div>
+                            <h1>Drica's Buffet</h1>
+                            <p>Você imagina, nós realizamos!</p>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="hero-pagination"></div>
+            </div>
+        </section>
+        <section id="sobre">
+            <div class="sobre-container">
+
+                <div class="sobre-imagem">
+                    <img src="images/coffee-break-mesa-executiva.jpg"
+                        alt="Mesa de coffee break corporativo preparada pela ANES Buffet e Eventos" id="parallax-foto">
+                </div>
+
+                <div class="sobre-texto" id="sobre-texto-ancora">
+                    <span class="sobre-subtitulo">EXCELÊNCIA E TRADIÇÃO</span>
+                    <h2>QUEM SOMOS</h2>
+                    <p>Com 26 anos de trajetória, a ANES Buffet e Eventos atua na criação de experiências gastronômicas
+                        para eventos corporativos, sociais e celebrações especiais, unindo apresentação cuidadosa,
+                        cardápios personalizados e serviço de alto padrão.</p>
+                    <p>Nossos serviços incluem cardápios personalizados, coffee breaks, coquetéis de boas-vindas,
+                        almoços e jantares executivos, eventos temáticos e equipe de garçons e copeiros preparada
+                        para atender cada ocasião com cuidado e profissionalismo.</p>
+                    <P>Trabalhamos com ingredientes frescos, montagem cuidadosa e soluções sob medida para transformar
+                        cada evento em uma experiência elegante, saborosa e memorável.</P>
+                    <a href="#orcamento-destaque" class="btn">Solicite um orçamento</a>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="servicos">
+            <span class="secao-subtitulo">O QUE OFERECEMOS</span>
+            <h2>Serviços para eventos corporativos e sociais</h2>
+            <div class="cards">
+                <div class="card">
+                    <h3>Coffe Breaks</h3>
+                    <p>Opções completas para reuniões, treinamentos, palestras e encontros empresariais.</p>
+                </div>
+
+                <div class="card">
+                    <h3>Almoços e Jantares Executivos</h3>
+                    <p>Cardápios personalizados para ocasiões profissionais, com apresentação cuidadosa e serviço de
+                        alto padrão.</p>
+                </div>
+
+                <div class="card">
+                    <h3>Coquetéis e Brunches</h3>
+                    <p>Soluções elegantes para recepções, confraternizações, boas-vindas e eventos especiais.</p>
+                </div>
+
+                <div class="card">
+                    <h3>Eventos Sob Medida</h3>
+                    <p>Planejamento de cardápio, montagem e equipe de apoio de acordo com o perfil de cada ocasião.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="galeria">
+            <div class="galeria-grid">
+                <div class="galeria-item revelar-esquerda">
+                    <img src="images/buffet-corporativo-salgados.jpg" alt="Buffet corporativo com salgados variados">
+                </div>
+                <div class="galeria-item revelar-baixo">
+                    <img src="images/coffee-break-mesa-executiva.jpg" alt="Coffee break em mesa executiva">
+                </div>
+                <div class="galeria-item revelar-direita">
+                    <img src="images/tabua-frios-paes-corporativo.jpg"
+                        alt="Tábua de frios, pães e queijos para evento corporativo">
+                </div>
+                <div class="galeria-item revelar-esquerda">
+                    <img src="images/mesa-buffet-frutas-frios.png" alt="Mesa de buffet com frutas, frios e sobremesas">
+                </div>
+
+                <div class="galeria-item revelar-baixo">
+                    <img src="images/sobremesas-frutas-copinhos.jpg" alt="Sobremesas com frutas servidas em copinhos">
+                </div>
+
+                <div class="galeria-item revelar-direita">
+                    <img src="images/mesa-cafe-corporativo.jpg" alt="Mesa de café corporativo com bebidas e doces">
+                </div>
+
+                <div class="galeria-item revelar-esquerda">
+                    <img src="images/coffee-break-bradesco.jpg" alt="Coffee break corporativo personalizado">
+                </div>
+
+                <div class="galeria-item revelar-baixo">
+                    <img src="images/brindes-corporativos-bradesco.jpg"
+                        alt="Mesa de coffee break com brindes corporativos">
+                </div>
+
+                <div class="galeria-item revelar-direita">
+                    <img src="images/mesa-coffee-break-evento-corporativo.png"
+                        alt="Mesa de coffee break montada para evento corporativo">
+                </div>
+
+            </div>
+        </section>
+
+        <section id="clientes">
+            <p class="clientes-titulo">EMPRESAS QUE JÁ ATENDEMOS</p>
+            <div class="carrossel-empresas">
+                <div class="logos-deslizantes">
+
+                    <!-- Primeira sequência -->
+                    <img src="images/logos/AmBev_logo.svg" alt="Ambev">
+                    <img src="images/logos/record-tv-logo.png" alt="Record">
+                    <img src="images/logos/ESPM.png" alt="ESPM">
+                    <img src="images/logos/Logo_FGV_-_Fundação_Getulio_Vargas.png" alt="Fgv">
+                    <img src="images/logos/Petrobras_horizontal_logo.svg" alt="Petrobras">
+                    <img src="images/logos/Banco_Bradesco_logo.svg" alt="Bradesco">
+
+                    <!-- Repetição para animação infinita -->
+                    <img src="images/logos/AmBev_logo.svg" alt="Ambev">
+                    <img src="images/logos/record-tv-logo.png" alt="Record">
+                    <img src="images/logos/ESPM.png" alt="ESPM">
+                    <img src="images/logos/Logo_FGV_-_Fundação_Getulio_Vargas.png" alt="Fgv">
+                    <img src="images/logos/Petrobras_horizontal_logo.svg" alt="Petrobras">
+                    <img src="images/logos/Banco_Bradesco_logo.svg" alt="Bradesco">
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção de diferenciais -->
+        <section id="diferenciais">
+            <div class="diferenciais-overlay"></div>
+            <div class="diferenciais-conteudo">
+                <span class="diferenciais-subtitulo">POR QUE NOS ESCOLHER</span>
+                <h2>O que nos diferencia</h2>
+                <div class="diferenciais-grid">
+
+                    <div class="diferencial-item">
+                        <span class="diferencial-icone">★</span>
+                        <h3>26 Anos de Experiência</h3>
+                        <p>Décadas servindo eventos corporativos e sociais com qualidade e tradição.</p>
+                    </div>
+
+                    <div class="diferencial-item">
+                        <span class="diferencial-icone">◆</span>
+                        <h3>Cardápios Personalizados</h3>
+                        <p>Cada evento tem um menu pensado especialmente para o perfil do cliente.</p>
+                    </div>
+
+                    <div class="diferencial-item">
+                        <span class="diferencial-icone">✦</span>
+                        <h3>Equipe Uniformizada</h3>
+                        <p>Garçons e copeiros treinados para atender cada ocasião com profissionalismo.</p>
+                    </div>
+
+                    <div class="diferencial-item">
+                        <span class="diferencial-icone">❖</span>
+                        <h3>Serviço Completo</h3>
+                        <p>Montagem, desmontagem, frete e todo material necessário incluso.</p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section id="depoimentos">
+            <span class="depoimentos-subtitulo">SATISFAÇÃO EM ATENDÊ-LOS</span>
+            <h2>Depoimentos</h2>
+
+            <div class="swiper carrossel-depoimentos">
+                <div class="swiper-wrapper">
+
+                    <div class="swiper-slide cartao-depoimento">
+                        <p class="texto-depoimento">Contratamos o Drica's para um coffee break corporativo e superou
+                            todas as expectativas. Apresentação impecável e equipe muito profissional.</p>
+                        <span class="nome-cliente">André Luis</span>
+                    </div>
+
+                    <div class="swiper-slide cartao-depoimento">
+                        <p class="texto-depoimento">Serviço de altíssima qualidade! Todos os convidados elogiaram muito
+                            a comida e o atendimento. Com certeza vou contratar novamente.</p>
+                        <span class="nome-cliente">Sandra Henriques</span>
+                    </div>
+
+                    <div class="swiper-slide cartao-depoimento">
+                        <p class="texto-depoimento">Organizamos um evento para a empresa e o Drica's cuidou de tudo com
+                            muito cuidado. Não tivemos nenhuma preocupação no dia.</p>
+                        <span class="nome-cliente">Talita Souza</span>
+                    </div>
+
+                    <div class="swiper-slide cartao-depoimento">
+                        <p class="texto-depoimento">Fiquei impressionada com o nível de atenção aos detalhes. A
+                            montagem estava linda e a comida deliciosa. Recomendo muito!</p>
+                        <span class="nome-cliente">Sarah Bento</span>
+                    </div>
+
+                    <div class="swiper-slide cartao-depoimento">
+                        <p class="texto-depoimento">Já utilizamos o serviço em três eventos diferentes e sempre
+                            entregam com excelência. Parceria que veio para ficar!</p>
+                        <span class="nome-cliente">Andreia Girotto</span>
+                    </div>
+
+                    <div class="swiper-slide cartao-depoimento">
+                        <p class="texto-depoimento">Coffee break para treinamento da nossa equipe. Tudo pontual, bem
+                            apresentado e gostoso. Equipe muito simpática também.</p>
+                        <span class="nome-cliente">Wesley Gabriel</span>
+                    </div>
+
+                    <div class="swiper-slide cartao-depoimento">
+                        <p class="texto-depoimento">Perfeito do início ao fim. A Adriana é muito atenciosa e o cardápio
+                            personalizado ficou exatamente como pedimos.</p>
+                        <span class="nome-cliente">Noah Almeida</span>
+                    </div>
+
+                </div>
+                <div class="swiper-pagination paginacao-depoimentos"></div>
+            </div>
+
+            <div class="controles-depoimentos">
+                <button class="seta-anterior" type="button" aria-label="Depoimento anterior">&#8249;</button>
+                <button class="seta-proxima" type="button" aria-label="Próximo depoimento">&#8250;</button>
+            </div>
+        </section>
+
+        <section id="orcamento-destaque">
+            <div class="orcamento-box">
+
+                <span class="orcamento-subtitulo">ENTRE EM CONTATO</span>
+
+                <h2>PEÇA UM ORÇAMENTO</h2>
+                <P>
+                    Solicite uma proposta personalizada para o seu evento corporativo.
+                    Nossa equipe está pronta para atender você.
+                </P>
+
+                <a href="https://wa.me/5521997278710?text=Olá,%20vim%20pelo%20site%20e%20gostaria%20de%20um%20orçamento"
+                    class="btn-orcamento-box" target="_blank" rel="noopener">
+                    Peça um orçamento
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+
+        <!-- Logo + descrição centralizada no topo -->
+        <div class="footer-topo">
+            <img src="images/Logo Drica_s fundo branco3.png" alt="Drica's Buffet" class="footer-logo">
+        </div>
+
+        <!-- 3 colunas: Contato / Endereço / Redes Sociais -->
+        <div class="footer-colunas">
+
+            <div class="footer-col">
+                <h4 class="footer-titulo-col">Contato</h4>
+                <ul class="footer-contato-lista">
+                    <li>📞 <a href="tel:+5521997278710">(21) 99727-8710</a></li>
+                    <li>✉️ <a href="mailto:adrianabuffet5@gmail.com">adrianabuffet5@gmail.com</a></li>
+                </ul>
+                <h5 class="footer-horario-titulo">Horário de Atendimento</h5>
+                <p class="footer-horario">Segunda à Sexta, das 9h às 19h</p>
+            </div>
+
+            <div class="footer-col">
+                <h4 class="footer-titulo-col">Endereço</h4>
+                <p class="footer-endereco">
+                    Rua José Maurício, 101 – Lojas D e E<br>
+                    Penha – Rio de Janeiro, RJ
+                </p>
+            </div>
+
+            <div class="footer-col">
+                <h4 class="footer-titulo-col">Redes Sociais</h4>
+                <div class="footer-redes">
+                    <a href="https://www.instagram.com/dricas_buffet" class="footer-rede footer-rede-insta"
+                        aria-label="Instagram" target="_blank" rel="noopener">
+                        <img src="images/logos/instagram-logo-instagram-icon-transparent-free-png.webp" alt="Instagram">
+                    </a>
+                    <a href="https://www.facebook.com/dricasbuffeteventos/" class="footer-rede" aria-label="Facebook"
+                        target="_blank" rel="noopener">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.5">
+                            <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="footer-rodape">
+            <p>© 2024–2026 Drica's Buffet. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+    <!-- Botão WhatsApp Flutuante -->
+    <a href="https://wa.me/5521997278710?text=Olá,%20vim%20pelo%20site%20e%20gostaria%20de%20um%20orçamento"
+        class="whatsapp-flutuante" target="_blank" rel="noopener">
+        <span class="wpp-tooltip">
+            <span class="wpp-pontos">...</span>
+            <span class="wpp-texto" style="display:none">Fale agora em nosso whatsapp!</span>
+        </span>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+    </a>
+
+    <script src="simpleParallax.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="script.js"></script>
+    <!-- Swiper JS -->
+
+</body>
+
+</html>
