@@ -3,7 +3,7 @@
    ============================================ */
 
 :root {
-    --cor-marinho: #1a3480;       /* Azul marinho principal — usado em títulos, footer, seção orçamento */
+    --cor-marinho: #1b2a4d;       /* Azul marinho principal — usado em títulos, footer, seção orçamento */
     --cor-dourado: #c9a84c;       /* Dourado — usado em destaques, botões, bordas e subtítulos */
     --cor-creme: #faf6ef;         /* Fundo creme suave — reservado para uso pontual */
 }
@@ -137,7 +137,7 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-    color: var(--cor-marinho);
+    color: #29abe2; 
 }
 
 header.scrolled nav ul li a {
@@ -145,7 +145,7 @@ header.scrolled nav ul li a {
 }
 
 header.scrolled nav ul li a:hover {
-    color: var(--cor-dourado);
+    color: #29abe2;
 }
 
 /* Botão "Solicite um orçamento" no menu */
@@ -585,7 +585,7 @@ header.scrolled .menu-toggle span {
 
 .card:hover {
     transform: translateY(-8px);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+    box-shadow: 0 10px 30px rgba(41, 171, 226, 0.35);
 }
 
 .card h3 {
@@ -1403,7 +1403,7 @@ footer {
     #servicos .card.card-ativo {
         opacity: 1;
         transform: scale(1.03);
-        box-shadow: 0 14px 35px rgba(0, 0, 0, 0.14);
+        box-shadow: 0 14px 35px rgba(41, 171, 226, 0.35);
         border-color: var(--cor-dourado);
     }
 
