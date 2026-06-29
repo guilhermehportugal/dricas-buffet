@@ -9,11 +9,11 @@ let headerEstaComScroll = false;
 window.addEventListener('scroll', function () {
     if (window.scrollY > 2 && !headerEstaComScroll) {
         header.classList.add('scrolled');
-        logo.src = 'images/logo preta.png';
+        logo.src = 'images/logo_dricas_transparente.png';
         headerEstaComScroll = true;
     } else if (window.scrollY <= 2 && headerEstaComScroll) {
         header.classList.remove('scrolled');
-        logo.src = 'images/Logo Drica_s fundo branco3.png'
+        logo.src = 'images/logo_dricas_transparente.png'
         headerEstaComScroll = false;
     }
 });
