@@ -544,6 +544,7 @@ header.scrolled .menu-toggle span {
     padding: 80px;
     background-color: #f9f9f9;
     text-align: center;
+    scroll-margin-top: 80px;
 }
 
 #servicos h2 {
@@ -1033,7 +1034,7 @@ footer {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    opacity: 0.08; /* Sutil — mais discreto sobre o azul marinho */
+    opacity: 0.1; /* Sutil — mais discreto sobre o azul marinho */
     z-index: 0;
 }
 
@@ -1382,6 +1383,7 @@ footer {
     /* Serviços */
     #servicos {
         padding: 60px 24px;
+        scroll-margin-top: 70px;
     }
 
     #servicos h2 {
