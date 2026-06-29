@@ -81,7 +81,7 @@ function animarHeroInicial() {
         });
 
         setTimeout(function () {
-            slideAtivo.querySelectorAll('.hero-tags span').forEach(function (tag) {
+            slideAtivo.querySelectorAll('.hero-tags span, .hero-tags a').forEach(function (tag) {
                 tag.classList.add('animar');
             });
         }, 250);
@@ -89,7 +89,7 @@ function animarHeroInicial() {
 
     // Garante que, mesmo se o Swiper já tiver avançado de slide, os elementos fiquem visíveis
     setTimeout(function () {
-        document.querySelectorAll('.hero-swiper .hero-content h1, .hero-swiper .hero-content p, .hero-swiper .hero-tags span').forEach(function (item) {
+        document.querySelectorAll('.hero-swiper .hero-content h1, .hero-swiper .hero-content p, .hero-swiper .hero-tags span, .hero-swiper .hero-tags a').forEach(function (item) {
             item.classList.add('animar');
         });
     }, 1600);

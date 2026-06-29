@@ -305,7 +305,8 @@ header.scrolled .menu-toggle span {
     margin-bottom: 15px;
 }
 
-.hero-tags span {
+.hero-tags span,
+.hero-tags a {
     font-size: 0.85rem;
     letter-spacing: 2px;
     text-transform: uppercase;
@@ -317,11 +318,13 @@ header.scrolled .menu-toggle span {
     transition: opacity 1s ease, transform 1s ease;
 }
 
-.hero-tags span:hover {
+.hero-tags span:hover,
+.hero-tags a:hover {
     color: var(--cor-dourado);
 }
 
-.hero-tags span.animar {
+.hero-tags span.animar,
+.hero-tags a.animar {
     opacity: 1;
     transform: translateX(0);
 }
@@ -1349,7 +1352,8 @@ footer {
         flex-wrap: wrap;
     }
 
-    .hero-tags span {
+    .hero-tags span,
+    .hero-tags a{
         font-size: 0.75rem;
     }
 
