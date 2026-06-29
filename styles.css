@@ -107,7 +107,6 @@ header.scrolled {
 .logo img {
     height: 85px;
     margin-top: 0;
-     filter: brightness(0) invert(1);
 }
 
 header.scrolled .logo img {
@@ -1316,8 +1315,8 @@ footer {
 
     nav ul li .btn-orcamento {
         display: inline-block;
-        border: 2px solid var(--cor-dourado);
-        color: var(--cor-dourado) !important;
+        border: 2px solid var(--cor-marinho);
+        color: var(--cor-marinho) !important;
         background-color: transparent;
     }
 
@@ -1528,7 +1527,7 @@ footer {
     }
 
     .footer-video-fundo {
-        opacity: 0.07; /* Ainda mais sutil no mobile */
+        opacity: 0.35; /* Ainda mais sutil no mobile */
     }
 
     /* Geral */
