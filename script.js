@@ -18,6 +18,12 @@ window.addEventListener('scroll', function () {
     }
 });
 
+window.addEventListener('scroll', function() {
+    if (window.location.hash) {
+        history.replaceState(null, null, ' ');
+    }
+});
+
 
 /* ============================================
    MENU MOBILE (HAMBÚRGUER)
