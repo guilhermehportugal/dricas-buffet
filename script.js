@@ -314,6 +314,21 @@ function detectarDirecaoSwipe() {
     }
 }
 
+/* ============================================
+                VIDEO FUMAÇA 
+   ============================================ */
+
+const videoFumaca = document.querySelector('.footer-video-fundo');
+
+if(videoFumaca) {
+    const tentativePlay = videoFumaca.play();
+
+    if(tentativePlay !== undefined) {
+        tentativePlay.catch(function() {
+            videoFumaca.style.display = 'none';
+        }); 
+    }
+}
 
 /* ============================================
    CÓDIGO NÃO UTILIZADO ATUALMENTE
