@@ -356,11 +356,9 @@ if (campoTelefone) {
         const ddd = numeros.slice(0, 2);
         const restante = numeros.slice(2);
 
-        // Celular: 3º dígito é "9" e tem mais de 6 números depois do DDD
         const ehCelular = restante.length > 0 && restante[0] === '9';
 
         if (ehCelular) {
-            // Formato celular: (XX) XXXXX-XXXX
             if (numeros.length > 7) {
                 numeros = numeros.replace(/^(\d{2})(\d{5})(\d{0,4})/, '($1) $2-$3');
             } else if (numeros.length > 2) {
@@ -369,7 +367,6 @@ if (campoTelefone) {
                 numeros = numeros.replace(/^(\d*)/, '($1');
             }
         } else {
-            // Formato fixo: (XX) XXXX-XXXX
             if (numeros.length > 6) {
                 numeros = numeros.replace(/^(\d{2})(\d{4})(\d{0,4})/, '($1) $2-$3');
             } else if (numeros.length > 2) {
@@ -383,18 +380,41 @@ if (campoTelefone) {
     });
 }
 
+const campoDataEvento = document.getElementById('data_evento');
 
-const campoData = document.getElementById('data_evento');
+if (campoDataEvento) {
+    campoDataEvento.addEventListener('input', function (evento) {
+        let numeros = evento.target.value.replace(/\D/g, '');
+        numeros = numeros.slice(0, 8);
 
-if (campoData) {
-    const dataAtual = new Date();
-    const hoje = dataAtual.toISOString().split('T')[0];
-    campoData.setAttribute('min', hoje);
+        if (numeros.length > 4) {
+            numeros = numeros.replace(/^(\d{2})(\d{2})(\d{0,4})/, '$1/$2/$3');
+        } else if (numeros.length > 2) {
+            numeros = numeros.replace(/^(\d{2})(\d{0,2})/, '$1/$2');
+        }
+
+        evento.target.value = numeros;
+    });
 }
 
-/* ============================================
-   FORMULÁRIO — ENVIO VIA FETCH (SEM RECARREGAR A PÁGINA)
-   ============================================ */
+function parseDataBr(texto) {
+    const partes = texto.split('/');
+    if (partes.length !== 3) return null;
+
+    const dia = parseInt(partes[0], 10);
+    const mes = parseInt(partes[1], 10);
+    const ano = parseInt(partes[2], 10);
+
+    if (!dia || !mes || !ano || partes[2].length !== 4) return null;
+
+    const data = new Date(ano, mes - 1, dia);
+
+    if (data.getDate() !== dia || data.getMonth() !== mes - 1 || data.getFullYear() !== ano) {
+        return null;
+    }
+
+    return data;
+}
 
 const formOrcamento = document.querySelector('.form-orcamento');
 const formSucesso = document.getElementById('form-sucesso');
@@ -406,6 +426,26 @@ if (formOrcamento) {
         evento.preventDefault();
 
         formErro.style.display = 'none';
+
+        if (campoDataEvento.value) {
+            const dataDigitada = parseDataBr(campoDataEvento.value);
+
+            if (!dataDigitada) {
+                formErro.textContent = 'Digite uma data válida no formato DD/MM/AAAA.';
+                formErro.style.display = 'block';
+                return;
+            }
+
+            const hoje = new Date();
+            hoje.setHours(0, 0, 0, 0);
+
+            if (dataDigitada < hoje) {
+                formErro.textContent = 'A data do evento não pode ser anterior a hoje.';
+                formErro.style.display = 'block';
+                return;
+            }
+        }
+
         btnEnviar.disabled = true;
         btnEnviar.textContent = 'Enviando...';
 
@@ -427,12 +467,14 @@ if (formOrcamento) {
                 }
             })
             .catch(function () {
+                formErro.textContent = 'Não foi possível enviar. Tente novamente ou fale pelo WhatsApp acima.';
                 formErro.style.display = 'block';
                 btnEnviar.disabled = false;
                 btnEnviar.textContent = 'Enviar solicitação';
             });
     });
 }
+
 
 /* ============================================
                 VIDEO FUMAÇA 

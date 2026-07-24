@@ -1097,7 +1097,8 @@
     .form-campo textarea {
         width: 100%;
         padding: 12px 14px;
-        border: 1px solid #ddd;
+        border: 1px solid transparent;
+        background-color: #e8eef6;
         border-radius: 4px;
         font-family: 'Lato', sans-serif;
         font-size: 0.95rem;
@@ -1111,7 +1112,13 @@
     .form-campo textarea:focus {
         outline: none;
         border-color: var(--cor-dourado);
+        background-color: #fff;
     }
+
+    .obrigatorio {
+    color: var(--cor-dourado);
+    font-size: 1.1rem;
+}
 
     .form-campo textarea {
         resize: vertical;

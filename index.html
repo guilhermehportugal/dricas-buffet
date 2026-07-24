@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#1b2a4d">
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lato:wght@300;400;700&display=swap">
     <link rel="stylesheet" href="styles.css">
@@ -337,23 +338,23 @@
                     <div class="form-grid">
 
                         <div class="form-campo">
-                            <label for="nome">Nome completo</label>
+                            <label for="nome">Nome completo <span class="obrigatorio">*</span></label>
                             <input type="text" id="nome" name="nome" required>
                         </div>
 
                         <div class="form-campo">
-                            <label for="telefone">Telefone/WhatsApp</label>
+                            <label for="telefone">Telefone/WhatsApp <span class="obrigatorio">*</span></label>
                             <input type="tel" id="telefone" name="telefone" pattern="\(\d{2}\) \d{4,5}-\d{4}"
                                 title="Digite o telefone completo, ex: (XX) XXXXX-XXXX" required>
                         </div>
 
                         <div class="form-campo">
-                            <label for="email">E-mail</label>
+                            <label for="email">E-mail <span class="obrigatorio">*</span></label>
                             <input type="email" id="email" name="email" required>
                         </div>
 
                         <div class="form-campo">
-                            <label for="tipo_evento">Tipo de evento</label>
+                            <label for="tipo_evento">Tipo de evento <span class="obrigatorio">*</span></label>
                             <select id="tipo_evento" name="tipo_evento" required>
                                 <option value="">Selecione...</option>
                                 <option value="Coffee Break">Coffee Break</option>
@@ -368,7 +369,8 @@
 
                         <div class="form-campo">
                             <label for="data_evento">Data estimada</label>
-                            <input type="date" id="data_evento" name="data_evento">
+                            <input type="text" id="data_evento" name="data_evento" placeholder="dd/mm/aaaa"
+                                inputmode="numeric" maxlength="10">
                         </div>
 
                         <div class="form-campo">
