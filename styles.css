@@ -1076,41 +1076,14 @@
         margin-bottom: 24px;
     }
 
+    
+
     .form-campo {
         min-width: 0;
     }
 
     .form-campo-largo {
         grid-column: span 2;
-    }
-
-    .campo-com-icone {
-        position: relative;
-    }
-
-    .campo-com-icone input[type="text"] {
-        padding-right: 44px;
-    }
-
-    .btn-calendario {
-        position: absolute;
-        top: 50%;
-        right: 10px;
-        transform: translateY(-50%);
-        background: none;
-        border: none;
-        font-size: 1.1rem;
-        cursor: pointer;
-        line-height: 1;
-        padding: 4px;
-    }
-
-    .input-date-oculto {
-        position: absolute;
-        opacity: 0;
-        pointer-events: none;
-        width: 0;
-        height: 0;
     }
 
     .form-campo label {
@@ -1152,6 +1125,13 @@
     .form-campo textarea {
         resize: vertical;
     }
+
+    .erro-campo {
+    display: block;
+    color: #c0392b;
+    font-size: 0.8rem;
+    margin-top: 4px;
+}
 
     .btn-form-enviar {
         width: 100%;

@@ -351,12 +351,14 @@ const campoTelefone = document.getElementById('telefone');
 if (campoTelefone) {
     campoTelefone.addEventListener('input', function (evento) {
         let numeros = evento.target.value.replace(/\D/g, '');
-        numeros = numeros.slice(0, 11);
 
         const ddd = numeros.slice(0, 2);
         const restante = numeros.slice(2);
 
         const ehCelular = restante.length > 0 && restante[0] === '9';
+
+        // fixo tem 10 dígitos no total (DDD + 8), celular tem 11 (DDD + 9)
+        numeros = numeros.slice(0, ehCelular ? 11 : 10);
 
         if (ehCelular) {
             if (numeros.length > 7) {
@@ -380,46 +382,30 @@ if (campoTelefone) {
     });
 }
 
-const campoDataEvento = document.getElementById('data_evento');
-
-if (campoDataEvento) {
-    campoDataEvento.addEventListener('input', function (evento) {
-        let numeros = evento.target.value.replace(/\D/g, '');
-        numeros = numeros.slice(0, 8);
-
-        if (numeros.length > 4) {
-            numeros = numeros.replace(/^(\d{2})(\d{2})(\d{0,4})/, '$1/$2/$3');
-        } else if (numeros.length > 2) {
-            numeros = numeros.replace(/^(\d{2})(\d{0,2})/, '$1/$2');
-        }
-
-        evento.target.value = numeros;
-    });
-}
-
-function parseDataBr(texto) {
-    const partes = texto.split('/');
-    if (partes.length !== 3) return null;
-
-    const dia = parseInt(partes[0], 10);
-    const mes = parseInt(partes[1], 10);
-    const ano = parseInt(partes[2], 10);
-
-    if (!dia || !mes || !ano || partes[2].length !== 4) return null;
-
-    const data = new Date(ano, mes - 1, dia);
-
-    if (data.getDate() !== dia || data.getMonth() !== mes - 1 || data.getFullYear() !== ano) {
-        return null;
-    }
-
-    return data;
-}
-
 const formOrcamento = document.querySelector('.form-orcamento');
 const formSucesso = document.getElementById('form-sucesso');
 const formErro = document.getElementById('form-erro');
 const btnEnviar = formOrcamento ? formOrcamento.querySelector('.btn-form-enviar') : null;
+
+const campoDataEvento = document.getElementById('data_evento');
+
+if (campoDataEvento) {
+    const dataAtual = new Date();
+    const hoje = dataAtual.toISOString().split('T')[0];
+    campoDataEvento.setAttribute('min', hoje);
+
+    campoDataEvento.addEventListener('blur', function () {
+        if (!campoDataEvento.value) return;
+
+        const ano = campoDataEvento.value.split('-')[0];
+
+        if (ano.length !== 4 || !campoDataEvento.checkValidity()) {
+            campoDataEvento.value = '';
+            formErro.textContent = 'Digite uma data válida.';
+            formErro.style.display = 'block';
+        }
+    });
+}
 
 if (formOrcamento) {
     formOrcamento.addEventListener('submit', function (evento) {
@@ -427,20 +413,37 @@ if (formOrcamento) {
 
         formErro.style.display = 'none';
 
-        if (campoDataEvento.value) {
-            const dataDigitada = parseDataBr(campoDataEvento.value);
+        const idsObrigatorios = ['nome', 'telefone', 'email', 'tipo_evento'];
+        let temCampoVazio = false;
+        const regexTelefone = /^\(\d{2}\) \d{4,5}-\d{4}$/;
 
-            if (!dataDigitada) {
-                formErro.textContent = 'Digite uma data válida no formato DD/MM/AAAA.';
-                formErro.style.display = 'block';
-                return;
+        idsObrigatorios.forEach(function (id) {
+            const campo = document.getElementById(id);
+            const spanErro = document.getElementById('erro-' + id);
+
+            if (!campo.value.trim()) {
+                spanErro.textContent = 'O campo é obrigatório.';
+                campo.classList.add('campo-invalido');
+                temCampoVazio = true;
+            } else if (id === 'telefone' && !regexTelefone.test(campo.value.trim())) {
+                spanErro.textContent = 'Telefone incompleto.';
+                campo.classList.add('campo-invalido');
+                temCampoVazio = true;
+            } else {
+                spanErro.textContent = '';
+                campo.classList.remove('campo-invalido');
             }
+        });
 
-            const hoje = new Date();
-            hoje.setHours(0, 0, 0, 0);
+        if (temCampoVazio) {
+            return;
+        }
 
-            if (dataDigitada < hoje) {
-                formErro.textContent = 'A data do evento não pode ser anterior a hoje.';
+        if (campoDataEvento.value) {
+            const ano = campoDataEvento.value.split('-')[0];
+
+            if (ano.length !== 4 || !campoDataEvento.checkValidity()) {
+                formErro.textContent = 'Digite uma data válida.';
                 formErro.style.display = 'block';
                 return;
             }
@@ -474,37 +477,6 @@ if (formOrcamento) {
             });
     });
 }
-
-/* ============================================
-   FORMULÁRIO — ÍCONE DE CALENDÁRIO (ABRE SELETOR NATIVO)
-   ============================================ */
-
-const btnCalendario = document.getElementById('btn-calendario');
-const inputDatePicker = document.getElementById('data_evento_picker');
-
-if (inputDatePicker) {
-    const hoje = new Date().toISOString().split('T')[0];
-    inputDatePicker.setAttribute('min', hoje);
-}
-
-if (btnCalendario && inputDatePicker) {
-    btnCalendario.addEventListener('click', function () {
-        if (inputDatePicker.showPicker) {
-            inputDatePicker.showPicker();
-        } else {
-            inputDatePicker.focus();
-            inputDatePicker.click();
-        }
-    });
-
-    inputDatePicker.addEventListener('change', function () {
-        if (!inputDatePicker.value) return;
-
-        const [ano, mes, dia] = inputDatePicker.value.split('-');
-        campoDataEvento.value = `${dia}/${mes}/${ano}`;
-    });
-}
-
 
 /* ============================================
                 VIDEO FUMAÇA 
