@@ -1076,6 +1076,10 @@
         margin-bottom: 24px;
     }
 
+    .form-campo {
+        min-width: 0;
+    }
+
     .form-campo-largo {
         grid-column: span 2;
     }
