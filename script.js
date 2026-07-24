@@ -120,7 +120,7 @@ new simpleParallax(image, {
    GALERIA — REVELAR IMAGENS AO ROLAR A PÁGINA
    ============================================ */
 
-const itensGaleria = document.querySelectorAll('.galeria-item');
+const itensRevelar = document.querySelectorAll('.galeria-item, .card');
 
 const observador = new IntersectionObserver(function (entradas) {
     entradas.forEach(function (entrada) {
@@ -130,7 +130,7 @@ const observador = new IntersectionObserver(function (entradas) {
     });
 }, { threshold: 0.15 });
 
-itensGaleria.forEach(function (item) {
+itensRevelar.forEach(function (item) {
     observador.observe(item);
 });
 
@@ -286,6 +286,34 @@ window.addEventListener('load', function () {
         }, 800);
     }, 500);
 });
+
+/* ============================================
+   WHATSAPP — ABRE/FECHA O MENU DE 2 NÚMEROS
+   ============================================ */
+
+const botaoWhatsapp = document.getElementById('whatsapp-toggle');
+const opcoesWhatsapp = document.getElementById('wpp-opcoes');
+
+if (botaoWhatsapp && opcoesWhatsapp) {
+    botaoWhatsapp.addEventListener('click', function (evento) {
+        // Impede que o clique nos links de dentro do menu também
+        // acione esse toggle (senão o menu fecharia antes de navegar)
+        if (evento.target.closest('a')) {
+            return;
+        }
+
+        opcoesWhatsapp.classList.toggle('ativo');
+    });
+
+    // Fecha o menu se a pessoa clicar em qualquer lugar fora dele
+    document.addEventListener('click', function (evento) {
+        const cliqueForaDoBotao = !botaoWhatsapp.contains(evento.target);
+
+        if (cliqueForaDoBotao) {
+            opcoesWhatsapp.classList.remove('ativo');
+        }
+    });
+}
 
 let posicaoInicialX = 0;
 let posicaoFinalX = 0;

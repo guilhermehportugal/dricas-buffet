@@ -566,10 +566,11 @@ header.scrolled .menu-toggle span {
 }
 
 .cards {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
     gap: 28px;
+    max-width: 900px;
+    margin: 0 auto;
 }
 
 .card {
@@ -577,7 +578,6 @@ header.scrolled .menu-toggle span {
     border: 1px solid #e0e0e0;
     border-top: 4px solid var(--cor-dourado); /* Borda dourada no topo de cada card */
     padding: 34px 28px;
-    width: 220px;
     min-height: 240px;
     border-radius: 4px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -1238,6 +1238,49 @@ footer {
     white-space: nowrap;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
     transition: opacity 0.3s;
+}
+
+/* ============================================
+   MENU DE OPÇÕES DO WHATSAPP (2 NÚMEROS)
+   ============================================ */
+
+.wpp-opcoes {
+    display: none;
+    position: absolute;
+    bottom: 75px;
+    right: 0;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+    padding: 10px;
+    min-width: 220px;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.wpp-opcoes.ativo {
+    display: flex;
+}
+
+.wpp-opcoes a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 12px;
+    border-radius: 8px;
+    color: #333;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: background-color 0.2s;
+}
+
+.wpp-opcoes a:hover {
+    background-color: #f0f0f0;
+}
+
+.wpp-opcoes a img {
+    width: 22px;
+    height: 22px;
 }
 
 .whatsapp-flutuante:hover .wpp-tooltip {
