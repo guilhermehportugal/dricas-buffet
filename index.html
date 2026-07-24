@@ -152,7 +152,7 @@
                 </div>
             </div>
         </section>
-       
+
         <section id="galeria">
             <div class="galeria-grid">
                 <div class="galeria-item revelar-esquerda">
@@ -329,6 +329,72 @@
                     class="btn-orcamento-box" target="_blank" rel="noopener">
                     Peça um orçamento
                 </a>
+                <div class="orcamento-divisor">
+                    <span>ou preencha o formulário</span>
+                </div>
+                <form class="form-orcamento" action="https://formspree.io/f/xojgkked" method="POST">
+
+                    <div class="form-grid">
+
+                        <div class="form-campo">
+                            <label for="nome">Nome completo</label>
+                            <input type="text" id="nome" name="nome" required>
+                        </div>
+
+                        <div class="form-campo">
+                            <label for="telefone">Telefone/WhatsApp</label>
+                            <input type="tel" id="telefone" name="telefone" pattern="\(\d{2}\) \d{4,5}-\d{4}"
+                                title="Digite o telefone completo, ex: (XX) XXXXX-XXXX" required>
+                        </div>
+
+                        <div class="form-campo">
+                            <label for="email">E-mail</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+
+                        <div class="form-campo">
+                            <label for="tipo_evento">Tipo de evento</label>
+                            <select id="tipo_evento" name="tipo_evento" required>
+                                <option value="">Selecione...</option>
+                                <option value="Coffee Break">Coffee Break</option>
+                                <option value="Almoço/Jantar Executivo">Almoço/Jantar Executivo</option>
+                                <option value="Coquetel/Brunch">Coquetel/Brunch</option>
+                                <option value="Evento Corporativo">Evento Corporativo</option>
+                                <option value="Buffet Temático">Buffet Temático</option>
+                                <option value="Casamento">Casamento</option>
+                                <option value="Outro">Outro</option>
+                            </select>
+                        </div>
+
+                        <div class="form-campo">
+                            <label for="data_evento">Data estimada</label>
+                            <input type="date" id="data_evento" name="data_evento">
+                        </div>
+
+                        <div class="form-campo">
+                            <label for="convidados">Nº de convidados</label>
+                            <input type="number" id="convidados" name="convidados" min="1">
+                        </div>
+
+                        <div class="form-campo form-campo-largo">
+                            <label for="mensagem">Mensagem/detalhes</label>
+                            <textarea id="mensagem" name="mensagem" rows="4"></textarea>
+                        </div>
+
+                    </div>
+
+                    <p class="form-erro" id="form-erro">Não foi possível enviar. Tente novamente ou fale pelo WhatsApp
+                        acima.</p>
+
+                    <button type="submit" class="btn-form-enviar">Enviar solicitação</button>
+
+                </form>
+                <div class="form-sucesso" id="form-sucesso">
+                    <span class="form-sucesso-icone">✓</span>
+                    <h3>Solicitação enviada!</h3>
+                    <p>Obrigado pelo contato. Nossa equipe vai retornar em breve.</p>
+                </div>
+
             </div>
         </section>
 

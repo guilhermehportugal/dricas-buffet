@@ -18,7 +18,7 @@ window.addEventListener('scroll', function () {
     }
 });
 
-window.addEventListener('scroll', function() {
+window.addEventListener('scroll', function () {
     if (window.location.hash) {
         history.replaceState(null, null, ' ');
     }
@@ -343,18 +343,110 @@ function detectarDirecaoSwipe() {
 }
 
 /* ============================================
+   FORMULÁRIO — MÁSCARA DE TELEFONE
+   ============================================ */
+
+const campoTelefone = document.getElementById('telefone');
+
+if (campoTelefone) {
+    campoTelefone.addEventListener('input', function (evento) {
+        let numeros = evento.target.value.replace(/\D/g, '');
+        numeros = numeros.slice(0, 11);
+
+        const ddd = numeros.slice(0, 2);
+        const restante = numeros.slice(2);
+
+        // Celular: 3º dígito é "9" e tem mais de 6 números depois do DDD
+        const ehCelular = restante.length > 0 && restante[0] === '9';
+
+        if (ehCelular) {
+            // Formato celular: (XX) XXXXX-XXXX
+            if (numeros.length > 7) {
+                numeros = numeros.replace(/^(\d{2})(\d{5})(\d{0,4})/, '($1) $2-$3');
+            } else if (numeros.length > 2) {
+                numeros = numeros.replace(/^(\d{2})(\d{0,5})/, '($1) $2');
+            } else if (numeros.length > 0) {
+                numeros = numeros.replace(/^(\d*)/, '($1');
+            }
+        } else {
+            // Formato fixo: (XX) XXXX-XXXX
+            if (numeros.length > 6) {
+                numeros = numeros.replace(/^(\d{2})(\d{4})(\d{0,4})/, '($1) $2-$3');
+            } else if (numeros.length > 2) {
+                numeros = numeros.replace(/^(\d{2})(\d{0,4})/, '($1) $2');
+            } else if (numeros.length > 0) {
+                numeros = numeros.replace(/^(\d*)/, '($1');
+            }
+        }
+
+        evento.target.value = numeros;
+    });
+}
+
+
+const campoData = document.getElementById('data_evento');
+
+if (campoData) {
+    const dataAtual = new Date();
+    const hoje = dataAtual.toISOString().split('T')[0];
+    campoData.setAttribute('min', hoje);
+}
+
+/* ============================================
+   FORMULÁRIO — ENVIO VIA FETCH (SEM RECARREGAR A PÁGINA)
+   ============================================ */
+
+const formOrcamento = document.querySelector('.form-orcamento');
+const formSucesso = document.getElementById('form-sucesso');
+const formErro = document.getElementById('form-erro');
+const btnEnviar = formOrcamento ? formOrcamento.querySelector('.btn-form-enviar') : null;
+
+if (formOrcamento) {
+    formOrcamento.addEventListener('submit', function (evento) {
+        evento.preventDefault();
+
+        formErro.style.display = 'none';
+        btnEnviar.disabled = true;
+        btnEnviar.textContent = 'Enviando...';
+
+        const dadosForm = new FormData(formOrcamento);
+
+        fetch(formOrcamento.action, {
+            method: 'POST',
+            body: dadosForm,
+            headers: {
+                'Accept': 'application/json'
+            }
+        })
+            .then(function (resposta) {
+                if (resposta.ok) {
+                    formOrcamento.style.display = 'none';
+                    formSucesso.classList.add('ativo');
+                } else {
+                    throw new Error('Falha no envio');
+                }
+            })
+            .catch(function () {
+                formErro.style.display = 'block';
+                btnEnviar.disabled = false;
+                btnEnviar.textContent = 'Enviar solicitação';
+            });
+    });
+}
+
+/* ============================================
                 VIDEO FUMAÇA 
    ============================================ */
 
 const videoFumaca = document.querySelector('.footer-video-fundo');
 
-if(videoFumaca) {
+if (videoFumaca) {
     const tentativePlay = videoFumaca.play();
 
-    if(tentativePlay !== undefined) {
-        tentativePlay.catch(function() {
+    if (tentativePlay !== undefined) {
+        tentativePlay.catch(function () {
             videoFumaca.style.display = 'none';
-        }); 
+        });
     }
 }
 

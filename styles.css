@@ -3,9 +3,12 @@
     ============================================ */
 
     :root {
-        --cor-marinho: #1b2a4d;       /* Azul marinho principal — usado em títulos, footer, seção orçamento */
-        --cor-dourado: #c9a84c;       /* Dourado — usado em destaques, botões, bordas e subtítulos */
-        --cor-creme: #faf6ef;         /* Fundo creme suave — reservado para uso pontual */
+        --cor-marinho: #1b2a4d;
+        /* Azul marinho principal — usado em títulos, footer, seção orçamento */
+        --cor-dourado: #c9a84c;
+        /* Dourado — usado em destaques, botões, bordas e subtítulos */
+        --cor-creme: #faf6ef;
+        /* Fundo creme suave — reservado para uso pontual */
     }
 
 
@@ -24,25 +27,30 @@
     h1,
     h2,
     h3 {
-        font-family: 'Playfair Display', serif; /* Fonte serifada para títulos — elegância e hierarquia */
+        font-family: 'Playfair Display', serif;
+        /* Fonte serifada para títulos — elegância e hierarquia */
     }
 
     html {
-        scroll-behavior: smooth; /* Scroll animado ao clicar nos links do menu */
+        scroll-behavior: smooth;
+        /* Scroll animado ao clicar nos links do menu */
     }
 
     a {
         text-decoration: none;
-        color: inherit; /* Links herdam a cor do elemento pai — evita o azul padrão do browser */
+        color: inherit;
+        /* Links herdam a cor do elemento pai — evita o azul padrão do browser */
     }
 
     img {
         max-width: 100%;
-        display: block; /* Remove espaço extra abaixo das imagens (inline gap) */
+        display: block;
+        /* Remove espaço extra abaixo das imagens (inline gap) */
     }
 
     body {
-        overflow-x: hidden; /* Evita scroll horizontal indesejado */
+        overflow-x: hidden;
+        /* Evita scroll horizontal indesejado */
         background-color: #e8eef6;
     }
 
@@ -66,7 +74,8 @@
     }
 
     .btn:hover {
-        background-color: #b8960a; /* Dourado levemente mais escuro no hover */
+        background-color: #b8960a;
+        /* Dourado levemente mais escuro no hover */
     }
 
 
@@ -80,7 +89,8 @@
         align-items: center;
         height: 90px;
         padding: 0 40px;
-        position: fixed;          /* Fica fixo no topo ao rolar */
+        position: fixed;
+        /* Fica fixo no topo ao rolar */
         top: 0;
         width: 100%;
         z-index: 100;
@@ -137,7 +147,7 @@
     }
 
     nav ul li a:hover {
-        color: #29abe2; 
+        color: #29abe2;
     }
 
     header.scrolled nav ul li a {
@@ -183,7 +193,8 @@
     ============================================ */
 
     .menu-toggle {
-        display: none;             /* Oculto no desktop — aparece só no mobile via media query */
+        display: none;
+        /* Oculto no desktop — aparece só no mobile via media query */
         flex-direction: column;
         justify-content: space-between;
         width: 26px;
@@ -198,13 +209,15 @@
         display: block;
         height: 2px;
         width: 100%;
-        background-color: #fff;   /* Linhas do hambúrguer brancas sobre o hero */
+        background-color: #fff;
+        /* Linhas do hambúrguer brancas sobre o hero */
         border-radius: 2px;
         transition: 0.3s;
     }
 
     header.scrolled .menu-toggle span {
-        background-color: var(--cor-marinho); /* Muda para marinho quando header fica branco */
+        background-color: var(--cor-marinho);
+        /* Muda para marinho quando header fica branco */
     }
 
 
@@ -254,7 +267,8 @@
 
     .hero-content {
         position: relative;
-        z-index: 2;              /* Fica acima do overlay */
+        z-index: 2;
+        /* Fica acima do overlay */
         text-align: center;
         color: #fff;
         padding: 0 40px;
@@ -403,7 +417,8 @@
         color: var(--cor-marinho);
         margin-bottom: 20px;
         padding-bottom: 15px;
-        border-bottom: 3px solid var(--cor-dourado); /* Linha dourada abaixo do título */
+        border-bottom: 3px solid var(--cor-dourado);
+        /* Linha dourada abaixo do título */
     }
 
     .sobre-texto p {
@@ -463,7 +478,8 @@
 
     .sobre-texto .btn:hover::after {
         width: 100%;
-        transition: width 0.35s ease; /* Underline desliza da esquerda para direita */
+        transition: width 0.35s ease;
+        /* Underline desliza da esquerda para direita */
     }
 
 
@@ -482,7 +498,8 @@
         z-index: 1000;
         justify-content: center;
         align-items: center;
-        touch-action: pinch-zoom; /* Permite zoom com dois dedos no mobile */
+        touch-action: pinch-zoom;
+        /* Permite zoom com dois dedos no mobile */
     }
 
     .lightbox.ativo {
@@ -576,7 +593,8 @@
     .card {
         background-color: #fff;
         border: 1px solid #e0e0e0;
-        border-top: 4px solid var(--cor-dourado); /* Borda dourada no topo de cada card */
+        border-top: 4px solid var(--cor-dourado);
+        /* Borda dourada no topo de cada card */
         padding: 34px 28px;
         min-height: 240px;
         border-radius: 4px;
@@ -659,7 +677,8 @@
 
     .visivel {
         opacity: 1;
-        transform: translate(0); /* Reseta qualquer translateX/Y */
+        transform: translate(0);
+        /* Reseta qualquer translateX/Y */
     }
 
 
@@ -705,8 +724,13 @@
 
     /* Move a faixa 50% (equivalente à primeira metade, que é idêntica à segunda) */
     @keyframes deslizar {
-        0%   { transform: translateX(0); }
-        100% { transform: translateX(-50%); }
+        0% {
+            transform: translateX(0);
+        }
+
+        100% {
+            transform: translateX(-50%);
+        }
     }
 
 
@@ -719,7 +743,8 @@
         background-image: url('images/servico-bar-drinks-evento.jpg');
         background-size: cover;
         background-position: center 40%;
-        background-attachment: fixed; /* Parallax nativo — desabilitado no mobile via JS */
+        background-attachment: fixed;
+        /* Parallax nativo — desabilitado no mobile via JS */
         padding: 100px 40px;
     }
 
@@ -729,7 +754,8 @@
         left: 0;
         width: 100%;
         height: 100%;
-        background-color: rgba(0, 0, 0, 0.78); /* Overlay escuro para legibilidade do texto */
+        background-color: rgba(0, 0, 0, 0.78);
+        /* Overlay escuro para legibilidade do texto */
     }
 
     .diferenciais-conteudo {
@@ -757,7 +783,8 @@
 
     .diferenciais-grid {
         display: grid;
-        grid-template-columns: repeat(4, 1fr); /* 4 colunas no desktop */
+        grid-template-columns: repeat(4, 1fr);
+        /* 4 colunas no desktop */
         gap: 40px;
     }
 
@@ -774,7 +801,8 @@
 
     .diferencial-item h3 {
         font-size: 1.5rem;
-        font-family: 'Cormorant Garamond', serif; /* Fonte elegante para os títulos dos diferenciais */
+        font-family: 'Cormorant Garamond', serif;
+        /* Fonte elegante para os títulos dos diferenciais */
         font-weight: 700;
         letter-spacing: 1px;
         color: var(--cor-dourado);
@@ -881,12 +909,14 @@
     }
 
     .texto-depoimento::before {
-        content: "\201C"; /* Abre aspas */
+        content: "\201C";
+        /* Abre aspas */
         margin-right: 15px;
     }
 
     .texto-depoimento::after {
-        content: "\201D"; /* Fecha aspas */
+        content: "\201D";
+        /* Fecha aspas */
         margin-left: 15px;
     }
 
@@ -980,7 +1010,7 @@
     .orcamento-subtitulo {
         display: block;
         color: #b88b65;
-        font-size: 0.9rem;
+        font-size: 1.1rem;
         font-weight: 700;
         margin-bottom: 10px;
     }
@@ -1014,14 +1044,148 @@
         color: #fff;
     }
 
+    /* ============================================
+   FORMULÁRIO DE ORÇAMENTO
+   ============================================ */
+
+    .orcamento-divisor {
+        display: flex;
+        align-items: center;
+        text-align: center;
+        color: #999;
+        font-size: 0.85rem;
+        margin: 30px 0 20px;
+    }
+
+    .orcamento-divisor::before,
+    .orcamento-divisor::after {
+        content: '';
+        flex: 1;
+        border-bottom: 1px solid #ddd;
+    }
+
+    .orcamento-divisor span {
+        padding: 0 15px;
+    }
+
+    .form-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 18px;
+        text-align: left;
+        margin-bottom: 24px;
+    }
+
+    .form-campo-largo {
+        grid-column: span 2;
+    }
+
+    .form-campo label {
+        display: block;
+        font-size: 0.85rem;
+        font-weight: 600;
+        color: var(--cor-marinho);
+        margin-bottom: 6px;
+    }
+
+    .form-campo input,
+    .form-campo select,
+    .form-campo textarea {
+        width: 100%;
+        padding: 12px 14px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        font-family: 'Lato', sans-serif;
+        font-size: 0.95rem;
+        cursor: text;
+        color: #333;
+        transition: border-color 0.3s;
+    }
+
+    .form-campo input:focus,
+    .form-campo select:focus,
+    .form-campo textarea:focus {
+        outline: none;
+        border-color: var(--cor-dourado);
+    }
+
+    .form-campo textarea {
+        resize: vertical;
+    }
+
+    .btn-form-enviar {
+        width: 100%;
+        background-color: var(--cor-marinho);
+        color: #fff;
+        padding: 14px 30px;
+        border: none;
+        border-radius: 4px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-size: 0.95rem;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+    .btn-form-enviar:hover {
+        background-color: #24365e;
+    }
+
+    .form-erro {
+        display: none;
+        color: #c0392b;
+        font-size: 0.85rem;
+        text-align: center;
+        margin-top: -10px;
+        margin-bottom: 20px;
+    }
+
+    .form-sucesso {
+        display: none;
+        text-align: center;
+        padding: 30px 10px;
+    }
+
+    .form-sucesso.ativo {
+        display: block;
+    }
+
+    .form-sucesso-icone {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        background-color: var(--cor-dourado);
+        color: #fff;
+        font-size: 1.8rem;
+        margin-bottom: 20px;
+    }
+
+    .form-sucesso h3 {
+        font-family: 'Lato', sans-serif;
+        font-size: 1.4rem;
+        color: var(--cor-marinho);
+        margin-bottom: 10px;
+    }
+
+    .form-sucesso p {
+        color: #777;
+        line-height: 1.6;
+        margin-bottom: 0;
+    }
 
     /* ============================================
     FOOTER
     ============================================ */
 
     footer {
-        background-color: var(--cor-marinho); /* Azul marinho — alinhado à identidade da marca */
-        color: #b0bfd4;                        /* Texto claro azulado para boa leitura sobre o fundo */
+        background-color: var(--cor-marinho);
+        /* Azul marinho — alinhado à identidade da marca */
+        color: #b0bfd4;
+        /* Texto claro azulado para boa leitura sobre o fundo */
         position: relative;
         overflow: hidden;
     }
@@ -1034,7 +1198,8 @@
         width: 100%;
         height: 100%;
         object-fit: cover;
-        opacity: 0.35; /* Sutil — mais discreto sobre o azul marinho */
+        opacity: 0.35;
+        /* Sutil — mais discreto sobre o azul marinho */
         z-index: 0;
     }
 
@@ -1101,7 +1266,8 @@
 
     .footer-contato-lista li {
         font-size: 0.9rem;
-        color: #b0bfd4; /* Azul acinzentado claro — legível sobre o marinho */
+        color: #b0bfd4;
+        /* Azul acinzentado claro — legível sobre o marinho */
         display: flex;
         gap: 8px;
         justify-content: flex-start;
@@ -1113,7 +1279,8 @@
     }
 
     .footer-contato-lista a:hover {
-        color: var(--cor-dourado); /* Dourado no hover — consistente com a identidade */
+        color: var(--cor-dourado);
+        /* Dourado no hover — consistente com a identidade */
     }
 
     .footer-horario-titulo {
@@ -1128,7 +1295,8 @@
     .footer-horario {
         font-size: 1rem;
         font-weight: 500;
-        color: #c8a98a; /* Tom dourado suave para o horário */
+        color: #c8a98a;
+        /* Tom dourado suave para o horário */
         line-height: 1.6;
     }
 
@@ -1177,7 +1345,8 @@
     .footer-rede-insta img {
         width: 40px;
         height: 40px;
-        filter: brightness(0) invert(1); /* Logo do Instagram branca */
+        filter: brightness(0) invert(1);
+        /* Logo do Instagram branca */
         transition: opacity 0.3s;
     }
 
@@ -1187,11 +1356,13 @@
 
     /* Linha divisória e copyright */
     .footer-rodape {
-        border-top: 1px solid #2e4070; /* Azul um pouco mais claro que o fundo — divisória sutil */
+        border-top: 1px solid #2e4070;
+        /* Azul um pouco mais claro que o fundo — divisória sutil */
         text-align: center;
         padding: 16px 24px;
         font-size: 0.82rem;
-        color: #7a90b0; /* Tom intermediário — discreto mas legível */
+        color: #7a90b0;
+        /* Tom intermediário — discreto mas legível */
     }
 
 
@@ -1205,7 +1376,8 @@
         right: 30px;
         width: 60px;
         height: 60px;
-        background-color: #25D366; /* Verde WhatsApp oficial */
+        background-color: #25D366;
+        /* Verde WhatsApp oficial */
         border-radius: 50%;
         display: flex;
         justify-content: center;
@@ -1318,14 +1490,16 @@
             top: 90px;
             left: 0;
             width: 100%;
-            height: 0;           /* Fechado por padrão */
+            height: 0;
+            /* Fechado por padrão */
             overflow: hidden;
             background-color: #fff;
             transition: height 0.3s ease;
         }
 
         nav.active {
-            height: calc(100vh - 90px); /* Abre até o fim da tela */
+            height: calc(100vh - 90px);
+            /* Abre até o fim da tela */
         }
 
         nav ul {
@@ -1397,7 +1571,7 @@
         }
 
         .hero-tags span,
-        .hero-tags a{
+        .hero-tags a {
             font-size: 0.75rem;
         }
 
@@ -1407,7 +1581,8 @@
         }
 
         .sobre-container {
-            flex-direction: column; /* Empilha imagem e texto verticalmente */
+            flex-direction: column;
+            /* Empilha imagem e texto verticalmente */
             gap: 32px;
         }
 
@@ -1507,12 +1682,14 @@
         /* Diferenciais — parallax desabilitado no mobile */
         #diferenciais {
             padding: 70px 24px;
-            background-attachment: scroll; /* fixed não funciona bem em iOS */
+            background-attachment: scroll;
+            /* fixed não funciona bem em iOS */
             background-position: center;
         }
 
         .diferenciais-grid {
-            grid-template-columns: 1fr; /* Uma coluna no mobile */
+            grid-template-columns: 1fr;
+            /* Uma coluna no mobile */
             gap: 36px;
         }
 
@@ -1563,6 +1740,14 @@
             letter-spacing: 2px;
         }
 
+        .form-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .form-campo-largo {
+            grid-column: span 1;
+        }
+
         /* WhatsApp flutuante — esconde tooltip no mobile */
         .wpp-tooltip {
             display: none;
@@ -1575,7 +1760,8 @@
         }
 
         .footer-video-fundo {
-            opacity: 0.35; /* Ainda mais sutil no mobile */
+            opacity: 0.35;
+            /* Ainda mais sutil no mobile */
         }
 
         /* Geral */
