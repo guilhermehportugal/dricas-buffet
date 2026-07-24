@@ -412,6 +412,7 @@ if (formOrcamento) {
         evento.preventDefault();
 
         formErro.style.display = 'none';
+        formErro.classList.remove('form-erro-aviso');
 
         const idsObrigatorios = ['nome', 'telefone', 'email', 'tipo_evento'];
         let temCampoVazio = false;
@@ -436,6 +437,9 @@ if (formOrcamento) {
         });
 
         if (temCampoVazio) {
+            formErro.textContent = 'Um ou mais campos possuem um erro. Verifique e tente novamente.';
+            formErro.classList.add('form-erro-aviso');
+            formErro.style.display = 'block';
             return;
         }
 
