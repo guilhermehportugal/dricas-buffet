@@ -1084,6 +1084,35 @@
         grid-column: span 2;
     }
 
+    .campo-com-icone {
+        position: relative;
+    }
+
+    .campo-com-icone input[type="text"] {
+        padding-right: 44px;
+    }
+
+    .btn-calendario {
+        position: absolute;
+        top: 50%;
+        right: 10px;
+        transform: translateY(-50%);
+        background: none;
+        border: none;
+        font-size: 1.1rem;
+        cursor: pointer;
+        line-height: 1;
+        padding: 4px;
+    }
+
+    .input-date-oculto {
+        position: absolute;
+        opacity: 0;
+        pointer-events: none;
+        width: 0;
+        height: 0;
+    }
+
     .form-campo label {
         display: block;
         font-size: 0.85rem;
@@ -1116,9 +1145,9 @@
     }
 
     .obrigatorio {
-    color: var(--cor-dourado);
-    font-size: 1.1rem;
-}
+        color: var(--cor-dourado);
+        font-size: 1.1rem;
+    }
 
     .form-campo textarea {
         resize: vertical;

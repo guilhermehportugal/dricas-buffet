@@ -475,6 +475,36 @@ if (formOrcamento) {
     });
 }
 
+/* ============================================
+   FORMULÁRIO — ÍCONE DE CALENDÁRIO (ABRE SELETOR NATIVO)
+   ============================================ */
+
+const btnCalendario = document.getElementById('btn-calendario');
+const inputDatePicker = document.getElementById('data_evento_picker');
+
+if (inputDatePicker) {
+    const hoje = new Date().toISOString().split('T')[0];
+    inputDatePicker.setAttribute('min', hoje);
+}
+
+if (btnCalendario && inputDatePicker) {
+    btnCalendario.addEventListener('click', function () {
+        if (inputDatePicker.showPicker) {
+            inputDatePicker.showPicker();
+        } else {
+            inputDatePicker.focus();
+            inputDatePicker.click();
+        }
+    });
+
+    inputDatePicker.addEventListener('change', function () {
+        if (!inputDatePicker.value) return;
+
+        const [ano, mes, dia] = inputDatePicker.value.split('-');
+        campoDataEvento.value = `${dia}/${mes}/${ano}`;
+    });
+}
+
 
 /* ============================================
                 VIDEO FUMAÇA 

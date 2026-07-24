@@ -369,8 +369,14 @@
 
                         <div class="form-campo">
                             <label for="data_evento">Data estimada</label>
-                            <input type="text" id="data_evento" name="data_evento" placeholder="dd/mm/aaaa"
-                                inputmode="numeric" maxlength="10">
+                            <div class="campo-com-icone">
+                                <input type="text" id="data_evento" name="data_evento" placeholder="dd/mm/aaaa"
+                                    inputmode="numeric" maxlength="10">
+                                <input type="date" id="data_evento_picker" class="input-date-oculto" tabindex="-1"
+                                    aria-hidden="true">
+                                <button type="button" class="btn-calendario" id="btn-calendario"
+                                    aria-label="Escolher data no calendário">📅</button>
+                            </div>
                         </div>
 
                         <div class="form-campo">
