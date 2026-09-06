@@ -1413,6 +1413,7 @@
         box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
         z-index: 999;
         transition: transform 0.3s;
+        cursor: pointer;
     }
 
     .whatsapp-flutuante:hover {
